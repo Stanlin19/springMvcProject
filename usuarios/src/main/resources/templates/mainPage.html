@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title th:text="${title}"></title>
+    <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css} "/>
+</head>
+<body>
+<div xmlns:th="http://www.w3.org/1999/xhtml">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <!--<a class="nav-link" th:href="@{/soloCliente}">Cliente</a>
+                    <a class="nav-link" th:href="@{/Users/viewUsers}">Usuarios</a>-->
+                </div>
+            </div>
+            <a style="float:right; color:white; font-weight: bold;" class="nav-link" th:href="@{/logout}">Logout</a>
+        </div>
+    </nav>
+    <div class="row" style="height: 92%">
+        <div class="bg-dark col-lg-2">
+            <ul class="list-group list-group-flush">
+                <li class="bg-dark list-group-item">
+                    <a style="color:white; text-decoration: none;" th:href="@{/roles/viewRoles}">Roles</a>
+                </li>
+                <li class="bg-dark list-group-item">
+                    <a style="color:white; text-decoration: none;" th:href="@{/users/viewUsers}">Usuarios</a>
+                </li>
+                <li class="bg-dark list-group-item">
+                    <a style="color:white; text-decoration: none;" th:href="@{/soloCliente}">Cliente</a>
+                </li>
+            </ul>
+        </div>
+        <div id="content" class="container col-lg-10">
+            <div class="container" th:block th:replace="${ruta1} :: ${ruta2}"></div>
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>
