@@ -1,0 +1,23 @@
+<div class="container" th:fragment="formUser" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h2>Crear usuario</h2>
+    <form method="post" th:action="@{/users/saveUser}">
+        <input type="hidden" name="id" value="">
+        <label for="userName">Usuario</label>
+        <input class="form-control" id="userName" name="userName" th:field="${usuario.userName}" value="">
+        <label for="completeName">Nombres</label>
+        <input class="form-control" id="completeName" name="completeName" th:field="${usuario.completeName}" value="">
+        <label for="mail">Correo</label>
+        <input class="form-control" id="mail" name="mail" th:field="${usuario.mail}" value="">
+        <label for="rol">Rol</label>
+        <select class="form-control" id="rol" name="role" th:field="${usuario.role}" value="">
+            <option value="" selected>Seleccione</option>
+            <option value="1">Administrador</option>
+            <option value="2">Cliente</option>
+        </select>
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" class="form-control" name="password" th:field="${usuario.password}" value=""><br>
+        <label for="status">Estado</label><br>
+        Activo: <input id="status" type="checkbox" name="status" th:field="${usuario.status}" value=""><br>
+        <input style="float:right" class="btn btn-success" type="submit" value="guardar">
+    </form>
+</div>

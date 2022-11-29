@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUsersService {
@@ -25,6 +26,11 @@ public class UserService implements IUsersService {
     private BCryptPasswordEncoder encoder;*/
 
     @Override
+    public Optional<Users> fingByID(Long id) {
+        return repository.findById(id);
+    }
+
+    @Override
     public List<Users> getUsers() {
         return repository.findAll();
     }
@@ -33,6 +39,7 @@ public class UserService implements IUsersService {
     public String saveUser(Users user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        repository.save(user);
         return "Usuario " + user.getUserName() + " Se ha guardado exitosamente.";
     }
 

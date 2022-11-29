@@ -1,6 +1,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title th:text="${title}"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:rel="stylesheet" th:href="@{/css/bootstrap.min.css} "/>
 </head>
 <body>
@@ -34,7 +35,7 @@
                 </li>
             </ul>
         </div>
-        <div id="content" class="container col-lg-10">
+        <div id="content" style="margin-top: 2%" class="container col-lg-10">
             <div class="container" th:block th:replace="${ruta1} :: ${ruta2}"></div>
         </div>
     </div>
